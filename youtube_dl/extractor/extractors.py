@@ -245,6 +245,7 @@ from .cnn import (
     CNNIE,
     CNNBlogsIE,
     CNNArticleIE,
+    CNNPodcastsIE,
 )
 from .coub import CoubIE
 from .comedycentral import (
