@@ -393,6 +393,7 @@ from .fivemin import FiveMinIE
 from .fivetv import FiveTVIE
 from .flickr import FlickrIE
 from .folketinget import FolketingetIE
+from .focusde import FocusDeIE
 from .footyroom import FootyRoomIE
 from .formula1 import Formula1IE
 from .fourtube import (
