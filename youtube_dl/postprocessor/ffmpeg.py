@@ -350,6 +350,14 @@ class FFmpegExtractAudioPP(FFmpegPostProcessor):
                 new_path, time.time(), information['filetime'],
                 errnote='Cannot update utime of audio file')
 
+        fsize = os.path.getsize(new_path)
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': new_path,
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
+
         return [path], information
 
 
@@ -373,6 +381,13 @@ class FFmpegVideoConvertorPP(FFmpegPostProcessor):
         information['filepath'] = outpath
         information['format'] = self._preferedformat
         information['ext'] = self._preferedformat
+        fsize = os.path.getsize(outpath)
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': outpath,
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
         return [path], information
 
 
@@ -430,6 +445,13 @@ class FFmpegEmbedSubtitlePP(FFmpegPostProcessor):
         self.run_ffmpeg_multiple_files(input_files, temp_filename, opts)
         os.remove(encodeFilename(filename))
         os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+        fsize = os.path.getsize(encodeFilename(filename))
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': encodeFilename(filename),
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
 
         return sub_filenames, information
 
@@ -515,6 +537,13 @@ class FFmpegMetadataPP(FFmpegPostProcessor):
             os.remove(metadata_filename)
         os.remove(encodeFilename(filename))
         os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+        fsize = os.path.getsize(encodeFilename(filename))
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': encodeFilename(filename),
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
         return [], info
 
 
@@ -526,6 +555,13 @@ class FFmpegMergerPP(FFmpegPostProcessor):
         self._downloader.to_screen('[ffmpeg] Merging formats into "%s"' % filename)
         self.run_ffmpeg_multiple_files(info['__files_to_merge'], temp_filename, args)
         os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+        fsize = os.path.getsize(encodeFilename(filename))
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': encodeFilename(filename),
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
         return info['__files_to_merge'], info
 
     def can_merge(self):
@@ -561,6 +597,13 @@ class FFmpegFixupStretchedPP(FFmpegPostProcessor):
 
         os.remove(encodeFilename(filename))
         os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+        fsize = os.path.getsize(encodeFilename(filename))
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': encodeFilename(filename),
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
 
         return [], info
 
@@ -579,6 +622,13 @@ class FFmpegFixupM4aPP(FFmpegPostProcessor):
 
         os.remove(encodeFilename(filename))
         os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+        fsize = os.path.getsize(encodeFilename(filename))
+        self._hook_progress({
+            'total_bytes': fsize,
+            'filename': encodeFilename(filename),
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
 
         return [], info
 
@@ -595,6 +645,14 @@ class FFmpegFixupM3u8PP(FFmpegPostProcessor):
 
             os.remove(encodeFilename(filename))
             os.rename(encodeFilename(temp_filename), encodeFilename(filename))
+
+            fsize = os.path.getsize(encodeFilename(filename))
+            self._hook_progress({
+                'total_bytes': fsize,
+                'filename': encodeFilename(filename),
+                'status': 'postprocessed',
+                'postprocessor': self.__class__.__name__
+            })
         return [], info
 
 
@@ -657,5 +715,10 @@ class FFmpegSubtitlesConvertorPP(FFmpegPostProcessor):
                     'ext': new_ext,
                     'data': f.read(),
                 }
+
+        self._hook_progress({
+            'status': 'postprocessed',
+            'postprocessor': self.__class__.__name__
+        })
 
         return sub_filenames, info
