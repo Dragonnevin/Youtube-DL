@@ -838,6 +838,7 @@ from .nova import (
     NovaEmbedIE,
     NovaIE,
 )
+from .novaplay import NovaPlayIE
 from .nowness import (
     NownessIE,
     NownessPlaylistIE,
