@@ -265,6 +265,7 @@ from .cpac import (
 )
 from .cracked import CrackedIE
 from .crackle import CrackleIE
+from .creacast import CreaCastIE
 from .crooksandliars import CrooksAndLiarsIE
 from .crunchyroll import (
     CrunchyrollIE,
