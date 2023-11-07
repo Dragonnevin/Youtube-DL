@@ -1429,6 +1429,7 @@ from .ufctv import (
 )
 from .uktvplay import UKTVPlayIE
 from .digiteka import DigitekaIE
+from .digitalconcerthall import DigitalConcertHallIE
 from .dlive import (
     DLiveVODIE,
     DLiveStreamIE,
