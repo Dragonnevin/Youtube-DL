@@ -956,6 +956,7 @@ from .platzi import (
     PlatziIE,
     PlatziCourseIE,
 )
+from .playerpl import PlayerPlIE
 from .playfm import PlayFMIE
 from .playplustv import PlayPlusTVIE
 from .plays import PlaysTVIE
