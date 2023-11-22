@@ -250,6 +250,8 @@ from .coub import CoubIE
 from .comedycentral import (
     ComedyCentralIE,
     ComedyCentralTVIE,
+    ComedyCentralCollectionIE,
+    ComedyCentralPlaylistIE,
 )
 from .commonmistakes import CommonMistakesIE, UnicodeBOMIE
 from .commonprotocols import (
