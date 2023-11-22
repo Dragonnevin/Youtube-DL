@@ -1159,6 +1159,7 @@ from .sky import (
 from .slideshare import SlideshareIE
 from .slideslive import SlidesLiveIE
 from .slutload import SlutloadIE
+from .snapchat import SnapchatIE
 from .snotr import SnotrIE
 from .sohu import SohuIE
 from .sonyliv import SonyLIVIE
