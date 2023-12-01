@@ -1572,6 +1572,7 @@ from .wdr import (
     WDRElefantIE,
     WDRMobileIE,
 )
+from .webarchive import WebArchiveIE
 from .webcaster import (
     WebcasterIE,
     WebcasterFeedIE,
