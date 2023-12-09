@@ -505,6 +505,7 @@ from .hungama import (
     HungamaSongIE,
 )
 from .hypem import HypemIE
+from .icareus import IcareusIE 
 from .ign import (
     IGNIE,
     IGNVideoIE,
