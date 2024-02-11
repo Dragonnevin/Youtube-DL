@@ -1532,6 +1532,7 @@ from .vlive import (
     VLivePostIE,
     VLiveChannelIE,
 )
+from .vocaroo import VocarooIE
 from .vodlocker import VodlockerIE
 from .vodpl import VODPlIE
 from .vodplatform import VODPlatformIE
