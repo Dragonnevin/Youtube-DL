@@ -1482,7 +1482,11 @@ from .videomore import (
     VideomoreSeasonIE,
 )
 from .videopress import VideoPressIE
-from .vidio import VidioIE
+from .vidio import (
+    VidioIE,
+    VidioPremierIE,
+    VidioLiveIE,
+)
 from .vidlii import VidLiiIE
 from .vidme import (
     VidmeIE,
