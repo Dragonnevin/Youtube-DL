@@ -899,6 +899,7 @@ from .ooyala import (
 from .ora import OraTVIE
 from .orf import (
     ORFTVthekIE,
+    ORFRADIOTHEKIE,
     ORFFM4IE,
     ORFFM4StoryIE,
     ORFOE1IE,
